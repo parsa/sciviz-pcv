@@ -2,7 +2,7 @@
 
 *Parsa Amini, Sandeep Ingale, Shungeng Zhang*
 
-To see the project in action visit: https://parsa.github.io/sciviz-class-proj
+To see the project in action visit: https://parsa.github.io/sciviz-pcv
 
 ## Problem Description
 
