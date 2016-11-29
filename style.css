@@ -1,51 +1,45 @@
-﻿
-    svg {
-        font: 12px sans-serif;
-    }
-    body{
-        background-color: white;
-    }
-    .background path {
-        fill: none;
-        stroke: #ddd;
-    }
-
-    .foreground path {
-        fill: none;
-        stroke: rgb(100, 150, 100)
-        stroke-width:2;
-
-    }
-    .foreground1 path {
-        fill: none;
-        stroke: red;
-    }
-    .brush .extent {
-        fill-opacity: .3;
-        stroke: #fff;
-    }
-
-    .axis line,
-    .axis path {
-        fill: none;
-        stroke: #000;
-    }
-
-    .axis text {
-        text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
-        cursor: move;
-    }
-
-div.tooltip { 
-    position: absolute;     
-    text-align: center;     
-    width: 100px;          
-    height: 28px;         
-    padding: 2px;       
-    font: 12px sans-serif;    
-    background:rgba(0, 0, 0, 0.8);; 
-    border: 0px;    
-    border-radius: 8px;     
-    pointer-events: none; 
-    color:white;    
+﻿svg {
+    font: 12px sans-serif;
+}
+body {
+    background-color: white;
+}
+.background path {
+    fill: none;
+    stroke: #ddd;
+}
+.foreground path {
+    fill: none;
+    stroke: rgb(100, 150, 100) stroke-width: 2;
+}
+.foreground1 path {
+    fill: none;
+    stroke: red;
+}
+.brush .extent {
+    fill-opacity: .3;
+    stroke: #fff;
+}
+.axis line,
+.axis path {
+    fill: none;
+    stroke: #000;
+}
+.axis text {
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    cursor: move;
+}
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    height: 28px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: rgba(0, 0, 0, 0.8);
+    ;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    color: white;
 }
