@@ -25,36 +25,36 @@ Team:
 <body onload="draw()">
     <div class="container-fluid">
         <div class="col-sm-9">
-            <h1>Parallel Cordinates Plot</h1>
+            <h1>Parallel Cordinates Visualization</h1>
             <div id="canvas"></div>
             <div id="instructions">
-                <h3>Instructions</h3>
+                <h3>Synopsis</h3>
                 <ul>
-                    <li>To move a dimension, click on dimension label on the top and drag dimension</li>
-                    <li>To delete a dimension, double click on dimension label, unselected data will be in background, if want to remove background data then single click on dimension</li>
-                    <li>To put a dimension back on the plot, double click on its label</li>
-                    <li>To explore data, hover the mouse curser on data line. A small label will be displayed</li>
-                    <li>To explore data, click on data line. Line will be highlighted in red. To deselect, click on the same line</li>
-                    <li>To explore multiple datalines at same time, click on dimension axis and drag to till the line you want to explore</li>
-                    <li>To change the default color of all the lines, select the desired color form the down menu on the side box and then click on the draw button</li>
-                    <li>To choose a different data set, select a different CSV file from dropdown. It may take a moment for the graph to display</li>
+                    <li>To move a dimension, drag the its label on the top to the desired location.</li>
+                    <li>To remove a dimension, double click on its label. Unselected data will be shown in a ligher color. To remove background data, click on the dimension label once again.</li>
+                    <li>To put a dimension back on the plot, double click on its label.</li>
+                    <li>Hover the mouse curser on data line. A small label will be displayed.</li>
+                    <li>To select a data line click on it. It will be highlighted in red. To deselect a selected line, click on it.</li>
+                    <li>To explore multiple datalines at same time, click on the dimension axis and drag it to the line you want to explore.</li>
+                    <li>To change the default color for all lines, select the desired color form the color picker on the right side of the page and then click on the draw button.</li>
+                    <li>Choose between available data set by selecting them from the dropdown menu. Depending on your hardware and browser configuration it may take a few moments for the graph to update</li>
                 </ul>
             </div>
         </div>
         <div class="col-sm-3">
             <div class="form-group">
                 <legend>
-                    <h3>Graph Parameters</h3>
+                    <h3>Visualization Parameters</h3>
                 </legend>
                 <label for="exampleSelect2">Data Set</label>
                 <select class="form-control" id="ddlViewBy" onchange="draw()">
-                    <option value="1">DataViscosity.csv</option>
-                    <option value="2" selected="selected">DataCji.csv</option>
+                    <option value="data/DataCji.csv" selected="selected">Data C_ji</option>
+                    <option value="data/DataViscosity.csv">Data Viscosity</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Graph Parameters</label>
-                <div>Color:
+                <label>Colorscheme</label>
+                <div>Line color:
                     <input class="jscolor" value="ab2567" id="color">
                 </div>
             </div>
