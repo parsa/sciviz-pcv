@@ -9,11 +9,10 @@ Team:
     Parsa Amini
 */
 function draw() {
-    var getcolor = $('#color').val();
-    console.log(getcolor);
-    var csvFile = document.getElementById("ddlViewBy");
-    var strUser = "DataCji.csv";
-    strUser = csvFile.options[csvFile.selectedIndex].text;
+    var selected_color = $('#color').val();
+    console.log(selected_color);
+
+    var dataset_path = $('#ddlViewBy').val();
 
     var margin = {
             top: 30,
@@ -37,7 +36,7 @@ function draw() {
         .attr("class", "tooltip")
         .style("opacity", 0);
 
-    var selected = false;
+    var is_dataline_selected = false;
 
     $('#canvas').find("svg").remove();
     var svg = d3.select("#canvas").append("svg")
@@ -46,10 +45,7 @@ function draw() {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-
-    d3.csv(strUser, function(error, inputdata) {
-
+    d3.csv(dataset_path, function(error, inputdata) {
         // Extract the list of dimensions and create a scale for each.
         x.domain(dimensions = d3.keys(inputdata[0]).filter(function(d) {
             return d != "name" && (y[d] = d3.scale.linear()
@@ -70,7 +66,7 @@ function draw() {
 
         // Add blue foreground lines for focus.
         foreground = svg.append("g")
-            .style("stroke", getcolor)
+            .style("stroke", selected_color)
             .style("fill", "none")
             .selectAll("path")
             .data(inputdata)
@@ -79,19 +75,18 @@ function draw() {
             .on("click", function(p) {
                 //foreground
                 var dataLine = d3.select(this);
-                if (!selected) {
+                if (!is_dataline_selected) {
                     dataLine.transition()
                         .style("stroke-width", 5).ease("elastic")
                         .style("stroke", "red")
-                    selected = true;
+                    is_dataline_selected = true;
                 } else {
-                    selected = false;
+                    is_dataline_selected = false;
                     dataLine.transition()
                         .style("stroke-width", 1)
-                        .style("stroke", getcolor)
-                    selected = true;
+                        .style("stroke", selected_color)
+                    is_dataline_selected = true;
                 }
-
                 return this;
             })
             .on("mouseover", function(d) {
@@ -193,7 +188,12 @@ function draw() {
         g.append("g")
             .attr("class", "brush")
             .each(function(d) {
-                d3.select(this).call(y[d].brush = d3.svg.brush().y(y[d]).on("brushstart", brushstart).on("brush", brush));
+                d3.select(this).call(
+                        y[d].brush = d3.svg.brush()
+                            .y(y[d])
+                            .on("brushstart", brushstart)
+                            .on("brush", brush)
+                );
             })
             .selectAll("rect")
             .attr("x", -8)
